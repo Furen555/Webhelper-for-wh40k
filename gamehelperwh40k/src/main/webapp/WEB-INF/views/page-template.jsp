@@ -19,7 +19,7 @@
 		<a class="navbar-brand">Game Helper For WH40K</a>
 		<nav class="nav nav-pills nav-fill">
 			<c:if test="${not empty CURRENT_ACCOUNT}">
-				<a class="nav-item nav-link disabled" href="#">Hello, ${CURRENT_ACCOUNT.firstName }</a>
+				<a class="nav-item nav-link disabled" href="#">Hello, ${CURRENT_ACCOUNT.login }</a>
 				<a class="nav-item nav-link" href="/logout" tabindex="-1" aria-disabled="true">Logout</a>
 			</c:if>
 		</nav>

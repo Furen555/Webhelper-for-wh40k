@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
+
 import wh40k.furen.Constants;
 import wh40k.furen.models.Account;
 
@@ -19,8 +21,15 @@ public class AuthFilter extends AbstractFilter {
 			throws IOException, ServletException {
 		String reqUri = req.getRequestURI();
 		Account currentAcc = (Account) req.getSession().getAttribute(Constants.CURRENT_ACCOUNT);
-		chain.doFilter(req, resp);
-
+		if (isUrlForLoggedInAccount(reqUri) && currentAcc == null) {
+			resp.sendRedirect("/login");
+		} else {
+			chain.doFilter(req, resp);
+		}
 	}
 
+	private boolean isUrlForLoggedInAccount(String reqUri) {
+		return StringUtils.startsWithIgnoreCase(reqUri, "/user");
+
+	}
 }

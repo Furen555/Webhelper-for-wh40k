@@ -19,7 +19,12 @@ public class LoginController extends AbstractController {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		forwardToPage("Login.jsp", request, response);
+		Account currentAcc = (Account) request.getSession().getAttribute(Constants.CURRENT_ACCOUNT);
+		if (currentAcc == null) {
+			forwardToPage("Login.jsp", request, response);
+		} else {
+			response.sendRedirect("/user/home");
+		}
 
 		// отправл€ет наш зпрос со всеми параметрами на указаный адрес. »спользуетс€ дл€
 		// получени€ данных по тому же урлу,
@@ -33,11 +38,12 @@ public class LoginController extends AbstractController {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getParameter("login");
-		request.getParameter("password");
-		request.getSession().setAttribute(Constants.CURRENT_ACCOUNT, new Account());
+		Account user = new Account();
+		user.setLogin(request.getParameter("login"));
+		user.setPassword(request.getParameter("password"));
+		request.getSession().setAttribute(Constants.CURRENT_ACCOUNT, user);
 
-		response.sendRedirect("/home");
+		response.sendRedirect("/user/home");
 
 		// отправл€ет новый гет запрос на указаный адрес(без вс€ких
 		// параметров).используетс€ дл€ отрисовки новой странички после получени€ каких
