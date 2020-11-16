@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib>
+	<tlib-version>l.0</tlib-version>
+	<jsp-version>2.3</jsp-version>
+	<shortname>tags</shortname>
+	<tag>
+		<name>static</name>
+		<tag-class>wh40k.furen.tegs.StaticTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	<tag>
+		<name>attr</name>
+		<tag-class>wh40k.furen.tegs.AttrTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>condition</name>
+			<required>true</required>
+			<type>java.lang.Boolean</type>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

@@ -26,7 +26,7 @@
 	</nav>
 
 	<div class="container" style="min-height: 500px">
-	<c:if test="${not empty SUCCESS_MESSAGE}">
+		<c:if test="${not empty SUCCESS_MESSAGE}">
 			<div class="alert alert-success alert-dismissible fade show" role="alert">
 				${SUCCESS_MESSAGE}
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -43,7 +43,7 @@
 			</div>
 		</c:if>
 		<jsp:include page="${currentPage}" />
-		
+
 	</div>
 
 	<footer> </footer>

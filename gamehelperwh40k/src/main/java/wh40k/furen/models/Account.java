@@ -1,8 +1,13 @@
 package wh40k.furen.models;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	private String login;
-	private int id;
+	private Long id;
 	private String mail;
 	private String password;
 
@@ -11,14 +16,15 @@ public class Account {
 	}
 
 	public void setLogin(String login) {
+
 		this.login = login;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
