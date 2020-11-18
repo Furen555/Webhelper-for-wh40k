@@ -9,12 +9,16 @@ import org.apache.commons.lang3.math.Fraction;
 import wh40k.furen.Constants;
 import wh40k.furen.dao.AccountDao;
 import wh40k.furen.dao.ResultDao;
+import wh40k.furen.dao.WeaponDao;
 import wh40k.furen.dao.impl.AccountDaoImpl;
 import wh40k.furen.dao.impl.ResultDaoImpl;
+import wh40k.furen.dao.impl.WeaponDaoImpl;
 import wh40k.furen.services.CommonService;
 import wh40k.furen.services.UserService;
+import wh40k.furen.services.WeaponService;
 import wh40k.furen.services.impl.CommonServiceImpl;
 import wh40k.furen.services.impl.UserServiceImpl;
+import wh40k.furen.services.impl.WeaponServiceImpl;
 
 public final class ApplicationContext {
 	public static final String APP_CONTEXT = "APP_CONTEXT";
@@ -23,9 +27,11 @@ public final class ApplicationContext {
 
 	private final CommonService commonService;
 	private final UserService userService;
+	private final WeaponService weaponService;
 
 	private final AccountDao accountDao;
 	private final ResultDao resultDao;
+	private final WeaponDao weaponDao;
 
 	public DataSource getDataSource() {
 		return dataSource;
@@ -45,6 +51,14 @@ public final class ApplicationContext {
 
 	public ResultDao getResultDao() {
 		return resultDao;
+	}
+
+	public WeaponService getWeaponService() {
+		return weaponService;
+	}
+
+	public WeaponDao getWeaponDao() {
+		return weaponDao;
 	}
 
 	public static ApplicationContext getApplicationContext(ServletContext sc) {
@@ -69,8 +83,11 @@ public final class ApplicationContext {
 		dataSource = buildDataSource();
 		accountDao = new AccountDaoImpl();
 		resultDao = new ResultDaoImpl();
+		weaponDao= new WeaponDaoImpl();
+		
 		commonService = new CommonServiceImpl(dataSource, accountDao);
 		userService = new UserServiceImpl(dataSource, accountDao, resultDao);
+		weaponService= new WeaponServiceImpl(dataSource, weaponDao);
 
 	}
 

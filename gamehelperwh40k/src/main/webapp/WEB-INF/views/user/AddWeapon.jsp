@@ -25,7 +25,8 @@
 				<label>D</label> <input type="text" class="form-control" name="d" placeholder="Enter damage">
 			</div>
 			<div class="form-group">
-				<label>Ability</label> <textarea input type="text" class="form-control" name="ability" placeholder="Enter ability"></textarea>
+				<label>Ability</label>
+				<textarea input type="text" class="form-control" name="ability" placeholder="Enter ability"></textarea>
 			</div>
 			<div class="form-group">
 				<label for="inputState">Fraction</label> <select name="fraction" class="form-control">
@@ -37,7 +38,7 @@
 			</div>
 
 			<button type="submit" class="btn btn-primary">Add</button>
-			<a href="/user/home" class="btn btn-outline-danger">Cancel</a>
+			<a href="/user/home" class="btn btn-outline-danger">Back to rosters</a>
 		</form>
 
 	</div>

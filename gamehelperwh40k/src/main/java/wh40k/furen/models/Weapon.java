@@ -10,7 +10,8 @@ public class Weapon implements Serializable {
 	private String name;
 	private String range;
 	private String type;
-	private int s;
+	private String s;
+	private String d;
 	private String ap;
 	private String abilitys;
 	private String fraction;
@@ -47,12 +48,20 @@ public class Weapon implements Serializable {
 		this.type = type;
 	}
 
-	public int getS() {
+	public String getS() {
 		return s;
 	}
 
-	public void setS(int s) {
+	public void setS(String s) {
 		this.s = s;
+	}
+
+	public String getD() {
+		return d;
+	}
+
+	public void setD(String d) {
+		this.d = d;
 	}
 
 	public String getAp() {

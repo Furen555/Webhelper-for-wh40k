@@ -12,6 +12,7 @@ import wh40k.furen.context.ApplicationContext;
 import wh40k.furen.listeners.ApplicationContextListener;
 import wh40k.furen.services.CommonService;
 import wh40k.furen.services.UserService;
+import wh40k.furen.services.WeaponService;
 
 public class AbstractController extends HttpServlet {
 
@@ -39,9 +40,13 @@ public class AbstractController extends HttpServlet {
 	public CommonService getCommonService() {
 		return applicationContext.getCommonService();
 	}
-	
+
 	public UserService getUserService() {
 		return applicationContext.getUserService();
+	}
+
+	public WeaponService getWeaponService() {
+		return applicationContext.getWeaponService();
 	}
 
 }
